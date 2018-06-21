@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>iTunes</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+
+  <h3>BUSCANDO CANCIONES EN iTUNES!</h3>
+  <div>
+    <label for="busca_cancion">ESCRIBE LA CANCIÓN QUE QUIERAS BUSCAR</label>
+    <input type="text" size="80" id="busca_cancion" [(ngModel)]="busqueda_usuario">
+    <br>
+    <p>
+      <button ion-button color="primary" (click)="Buscar();">ENCONTRAR</button>
+    </p>
+    <img src="assets/imgs/ITunes_logo.png" style="max-height: 100px;">
+</div>
+<div *ngIf="cargado">
+  <div *ngFor="let cancion of array_canciones">
+    {{cancion.artista}}
+
+
+  </div>
+  <div *ngIf="esMovil">
+  <p>Se está mostrando en un móvil</p>
+  
+    </div>
+</div>
+<div *ngIf="!cancion_cargada">
+    <p>Se está cargando.... no seas impaciente....</p>
+    <img src="assets/imgs/buscando.gif">
+</div>
+</ion-content>
